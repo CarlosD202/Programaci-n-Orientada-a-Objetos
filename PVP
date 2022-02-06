@@ -1,0 +1,114 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pvp;
+
+/**
+ *
+ * @author Usuario
+ */
+//
+// Programador : Carlos Daniel Chinchilla García
+// Descripción : Primer programa 
+// Fecha de creación : 5 febrero 2022
+//
+
+//A continuación iniciaremos la clase
+public class PVVP {
+    private String nombre = "Computadora";
+    private int salud =200;
+    private int ataque =30;
+    private int defensa =20;
+    private double ta =0.5;
+    
+    // Le damos valores de inicio 
+    public PVVP()
+    {
+     String nombre = "Computadora";
+     int salud =200;
+     int ataque =30;
+     int defensa =20;
+     double ta =0.5;
+    }
+
+    //Método de enclapsulación 
+    
+    public String getNombre ()
+    {
+        return this.nombre;
+    }
+    
+    public void setNombre (String _nombre)
+    {
+        this.nombre=_nombre;
+    }
+    
+    public int getSalud()
+    {
+        return this.salud;
+    }
+    
+    public void setSalud(int _salud)
+    {
+        this.salud =_salud;
+    }
+    
+    public int getAtaque()
+    {
+        return this.ataque;
+    }
+    
+    public void setAtaque()
+    {
+        this.ataque = ataque;
+    }
+    
+    public int getDefensa()
+    {
+        return this.defensa;
+    }
+    
+    public void setDefensa(int _defensa)
+    {
+        this.defensa =_defensa;
+    }
+    
+    public double getTa()
+    {
+        return this.ta;
+    }
+    
+    public void setTa(double _ta)
+    {
+        this.ta= _ta;
+    }
+    
+    //Método adstracción
+    public void Atacado(int _ataque)
+    {
+        int daño = _ataque-this.defensa;
+        int vidaRestante=this.salud;
+        if(daño>0){
+            vidaRestante-=daño;
+            System.out.println(this.nombre+"Tuvo un golpe... perdio "+daño+" vida");
+        }else{
+            System.out.println(this.nombre+" golpe debil... Levantate y ataca");
+        }
+        this.salud = vidaRestante;
+        System.out.println(this.nombre+"tine"+this.salud+" vida restante");
+    }
+    
+    public void Esquivar ()
+    {
+        System.out.println(this.nombre+"Esquivo el golpe...");
+    }
+    
+    //Devuelve si el personaje sigue con vida
+    public boolean Estado()
+    {
+        boolean vida = true;
+        if(this.salud<=0)vida=false;
+        return vida;
+    }
+}
