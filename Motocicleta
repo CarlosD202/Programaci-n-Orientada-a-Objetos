@@ -1,0 +1,46 @@
+/*
+  *Hacer un programa para que una persona autorizada pueda saber cual de todas las motocicletas
+// de una empresa es la mas lenta que tiene que se caracterizan por
+ * su marca, color, modelo y velocidad. 
+ */
+
+// Programa         : ProyectoDePOO.java
+// Programadores    : Carlos Daniel Chinchilla García
+//                    Josué Omar Ramírez Osorio 
+// Descripción      : Proyecto Java
+// Fecha de creación: 9/2/22
+//
+
+package proyectodepoo;
+
+public class Motocicleta {
+    private String marca;
+    private String color;
+    private String modelo;
+    private Float velocidad;
+
+    // Aqui ingresamos el método constructor
+    
+    
+    public Motocicleta(String marca, String color, String modelo, Float velocidad) {
+        this.marca = marca;
+        this.color = color;
+        this.modelo = modelo;
+        this.velocidad = velocidad;
+    }
+    
+   //Insertamos el metodo Get
+    
+    
+    public Float getVelocidad() {
+        return velocidad;
+    }
+    
+    public String enseñarDatos (){
+        return "Marca: "+marca+"\nColor :"+color+"\nModelo :"+modelo+"\nVelocidad :"+velocidad+"\n";
+        
+    }
+    
+    
+    
+}
