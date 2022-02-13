@@ -1,0 +1,88 @@
+/*
+ * Hacer un programa para que una persona autorizada pueda saber cual de todas las motocicletas
+// de una empresa es la mas lenta que tiene que se caracterizan por
+ * su marca, color, modelo y velocidad. 
+ * 
+ */
+// Programa         : ProyectoDePOO.java
+// Programadores    : Carlos Daniel Chinchilla García
+//                    Josué Omar Ramírez Osorio 
+// Descripción      : Proyecto Java
+// Fecha de creación: 9/2/22
+//
+package proyectodepoo;
+// Importamos el paquete para poder leer los datos 
+import java.util.Scanner;
+
+
+public class ProyectoDePOO {
+    
+    public static int indiceM(Motocicleta moto[]){
+        float velocidad;
+        int indice = 0;
+        
+        velocidad = moto [0].getVelocidad();
+        //encontrando cual de todas las velocidades es menor 
+        for(int i=1;i<moto.length;i++){
+            if(moto[i].getVelocidad()<velocidad){
+                velocidad = moto[i].getVelocidad();
+                indice = i;
+            }
+        }
+        return indice;
+    }
+
+    
+// Método main
+    
+    public static void main(String[] args) {
+        Scanner entry = new Scanner(System.in);
+        String nombre;
+        String apellido;
+        String marca;
+        String color;
+        String modelo; 
+        Float velocidad;
+        int numeroMotos, indiceR;
+        
+        System.out.println("Nombre: ");
+        nombre = entry.nextLine ();
+        System.out.println("Apellido: ");
+        apellido = entry.nextLine ();
+        
+        System.out.print("Cuantas motocicletas desea ingresar? ");
+        numeroMotos = entry.nextInt ();
+         
+        //Creamos arreglos para los objetos de las motocicletas
+        //Objetos para los coches 
+        Motocicleta moto[] = new Motocicleta [numeroMotos];
+        
+        // Vamos a hacer un bucle for 
+        //  Va continuar hasta que sea menor a cantidad de elementos del arreglo coches
+        for(int i=0;i<moto.length;i++){
+            entry.nextLine();
+            
+        
+        System.out.println("\nEscriba cuales son las características de la moto"+(i+1)+":");
+        System.out.print("¿Cual es la marca? ");
+        marca = entry.nextLine();
+        System.out.print("¿Cual es el color? ");
+        color = entry.nextLine();
+        System.out.print("¿Cual es el modelo? ");
+        modelo = entry.nextLine();
+        System.out.print("¿Su velocidad es? ");
+        velocidad = entry.nextFloat();
+        
+        moto[i] = new Motocicleta (marca, color, modelo, velocidad); //cada vez que el bucle de una vuelta seria 
+        //un nuevo coche almacenado
+   
+        }
+        
+        indiceR = indiceM (moto);
+        System.out.print("La moto mas lenta es: ");
+        System.out.println(moto[indiceR].enseñarDatos());
+    }
+    
+    
+    
+}
