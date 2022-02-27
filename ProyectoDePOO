@@ -14,75 +14,130 @@ package proyectodepoo;
 // Importamos el paquete para poder leer los datos 
 import java.util.Scanner;
 
+//Metodo main
+public static void main(String[] args) {
 
-public class ProyectoDePOO {
-    
-    public static int indiceM(Motocicleta moto[]){
-        float velocidad;
-        int indice = 0;
+        Scanner w = new Scanner(System.in);
+        //Ingresamos los valores que queremos ordener 
         
-        velocidad = moto [0].getVelocidad();
-        //encontrando cual de todas las velocidades es menor 
-        for(int i=1;i<moto.length;i++){
-            if(moto[i].getVelocidad()<velocidad){
-                velocidad = moto[i].getVelocidad();
-                indice = i;
+        double motos[] = {55.8, 300.25, 180.35, 75.60, 120.25, 80.0};
+        System.out.println("Lista de velocidades de motocicletas: " + Arrays.toString(motos));
+        //mandamos a llamar el metodo de orden seleccion
+        
+        motos = ordenSeleccionD(motos);
+        System.out.println("Lista ordenada: " + Arrays.toString(motos));
+
+        //Busqueda de velocidades
+        
+        double posicion;
+        double moto[] = {55.8, 300.25, 180.35, 75.60, 120.25, 80.0};
+        moto = ordenSeleccionD(moto);
+
+        System.out.println("Ingrese una velocidad a buscar:");
+        posicion = w.nextDouble();
+        if (busquedaBin(moto, posicion) == -1) {
+            System.out.println("Esa velocidad no existe! ");
+        } else {
+            System.out.println("La velocidad está en la posicion: " + busquedaBin(moto, posicion));
+
+        }
+
+        //Busqueda de edades, queremos encontrar si esta o no en nuestra lista el valor que estamos ingresando.
+        
+        int position;
+        int edades[] = {18, 29, 34, 56, 19, 34, 56, 80};
+        edades = ordenBurbuja(edades);
+        System.out.println("Lista de edades: " + Arrays.toString(edades));
+        System.out.println("Ingrese una edad para buscar:");
+        position = w.nextInt();
+        if (busquedaBina(edades, position) == -1) {
+            System.out.println("Esa edad no esta registrada ");
+        } else {
+            System.out.println("La edad está en la posicion: " + busquedaBina(edades, position));
+
+        }
+    }
+
+    public static double[] ordenSeleccionD(double[] a) {
+        int indiceMenor, n;
+        n = a.length;
+        for (int i = 0; i < n - 1; i++) {
+            indiceMenor = i;
+            for (int j = i + 1; j < n; j++) {
+                if (a[j] < a[indiceMenor]) {
+                    indiceMenor = j;
+                }
+            }
+            double temp = a[i];
+            if (i != indiceMenor) {
+                a[i] = a[indiceMenor];
+                a[indiceMenor] = temp;
+            }
+
+        }
+        return a;
+    }
+    //Hicimos el arreglo de orden burbuja.
+    
+    public static int[] ordenBurbuja(int[] a) {
+        int n = a.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+
+                if (a[j] > a[j + 1]) {
+                    int temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                }
             }
         }
-        return indice;
+        return a;
+    }
+    // realizamos lo que es la busqueda binaria.
+    
+    public static double busquedaBin(double[] a, double clave) {
+
+        int central, alto, bajo;
+        double valorCentral;
+        bajo = 0;
+        alto = a.length - 1;
+        while (bajo <= alto) {
+            central = (bajo + alto) / 2;
+            valorCentral = a[central];
+            if (clave == valorCentral) {
+                return central;
+            } else if (clave < valorCentral) {
+                alto = central - 1;
+            } else {
+                bajo = central + 1;
+            }
+
+        }
+
+        return -1;
+
     }
 
-    
-// Método main
-    
-    public static void main(String[] args) {
-        Scanner entry = new Scanner(System.in);
-        String nombre;
-        String apellido;
-        String marca;
-        String color;
-        String modelo; 
-        Float velocidad;
-        int numeroMotos, indiceR;
-        
-        System.out.println("Nombre: ");
-        nombre = entry.nextLine ();
-        System.out.println("Apellido: ");
-        apellido = entry.nextLine ();
-        
-        System.out.print("Cuantas motocicletas desea ingresar? ");
-        numeroMotos = entry.nextInt ();
-         
-        //Creamos arreglos para los objetos de las motocicletas
-        //Objetos para los coches 
-        Motocicleta moto[] = new Motocicleta [numeroMotos];
-        
-        // Vamos a hacer un bucle for 
-        //  Va continuar hasta que sea menor a cantidad de elementos del arreglo coches
-        for(int i=0;i<moto.length;i++){
-            entry.nextLine();
-            
-        
-        System.out.println("\nEscriba cuales son las características de la moto"+(i+1)+":");
-        System.out.print("¿Cual es la marca? ");
-        marca = entry.nextLine();
-        System.out.print("¿Cual es el color? ");
-        color = entry.nextLine();
-        System.out.print("¿Cual es el modelo? ");
-        modelo = entry.nextLine();
-        System.out.print("¿Su velocidad es? ");
-        velocidad = entry.nextFloat();
-        
-        moto[i] = new Motocicleta (marca, color, modelo, velocidad); //cada vez que el bucle de una vuelta seria 
-        //un nuevo coche almacenado
-   
+    public static int busquedaBina(int[] a, int clave) {
+
+        int central, alto, bajo;
+        int valorCentral;
+        bajo = 0;
+        alto = a.length - 1;
+        while (bajo <= alto) {
+            central = (bajo + alto) / 2;
+            valorCentral = a[central];
+            if (clave == valorCentral) {
+                return central;
+            } else if (clave < valorCentral) {
+                alto = central - 1;
+            } else {
+                bajo = central + 1;
+            }
+
         }
-        
-        indiceR = indiceM (moto);
-        System.out.print("La moto mas lenta es: ");
-        System.out.println(moto[indiceR].enseñarDatos());
+
+        return -1;
+
     }
-    
-    
-    
 }
