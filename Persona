@@ -1,12 +1,11 @@
-
-package proyectodepoo;
-
+package poo;
 import java.util.Scanner;
-public class Persona {
-    private String nombre;
+/
+public class persona {
+     private String nombre;
     private String apellido;
     
-    public Persona(String nombre, String apellido){
+    public persona(String nombre, String apellido){
         this.nombre = nombre;
         this.apellido = apellido;
     }
@@ -25,5 +24,5 @@ public class Persona {
     public String setapellido (){
         return apellido;
     }
-    
 }
+
