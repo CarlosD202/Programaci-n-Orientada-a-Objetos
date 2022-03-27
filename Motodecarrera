@@ -1,0 +1,70 @@
+/*
+ * Hacer un programa para que una persona autorizada pueda saber cual de todas las motocicletas
+// de una empresa es la mas lenta que tiene que se caracterizan por
+ * su marca, color, modelo y velocidad. 
+ * 
+ */
+// Programa         : ProyectoDePOO.java
+// Programadores    : Carlos Daniel Chinchilla García
+//                    Josué Omar Ramírez Osorio 
+// Descripción      : Proyecto Java
+// Fecha de creación: 9/2/22
+//
+package proyectodepoo;
+
+/**
+ *
+ * @author Carlos
+ */
+//Clase hija
+
+//Motodecarrera hereda de la clase Motocicleta
+public class Motodecarrera extends Motocicleta {
+    private String carnet;
+    private int alturasillin;
+    private float longMax;
+    
+    //Metodo constructor de la clase Motodecarrera
+    public Motodecarrera(String marca,String color,String modelo,double velocidad,String carnet,int alturasillin,float longMax){
+        super(marca,color,modelo,velocidad);
+        this.carnet = carnet;
+        this.alturasillin = alturasillin;
+        this.longMax = longMax;
+        
+    }
+    
+     public String getcarnet(){
+        return carnet;
+    }
+    public String setcarnet (){
+        return carnet;
+    }
+    
+    public int getalturasillin (){
+        return alturasillin;
+    }
+    
+    public int setalturasillin (){
+        return alturasillin;
+    }
+    
+     public float getlongMax (){
+        return longMax;
+    }
+      public float setlongMax (){
+        return longMax;
+    }
+    
+    public void mostrarDatos(){
+        System.out.println("-----INFORMACIÓN DE LA MOTO DE CARRERAS-----");
+        System.out.println("Marca: "+getmarca()+
+                "\nColor: "+getcolor()+
+                "\nModelo: "+getmodelo()+
+                "\nVelocidad: "+getvelocidad()+
+                "\nCarnet: "+carnet+
+                "\nAltura del sillin: "+alturasillin+
+                "\nLongitud máxima: "+longMax);
+    }
+    
+    
+}
