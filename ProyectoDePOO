@@ -12,23 +12,39 @@
 //
 package proyectodepoo;
 // Importamos el paquete para poder leer los datos 
+
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-//Metodo main
-public static void main(String[] args) {
 
-        Scanner w = new Scanner(System.in);
-        //Ingresamos los valores que queremos ordener 
+public class ProyectoDePOO {
+
+    public static void main(String[] args) {
+        //Creamos un objeto de la clase Inspector y escribimos sus respectivos datos
+        {
+            Inspector inspector = new Inspector("Omar","García",21,"08569496-3");
+            inspector.mostrarDatos();
+            
+        }
+
+        //Creamos un objeto de la clase Motodecarrera y escribimos sus respectivos datos
+        {
+            Motodecarrera motodecarrera = new Motodecarrera ("Yamaha","Azul","MT-09",100,"Tipo A",860,205);
+            motodecarrera.mostrarDatos();
+        }
         
+        
+        /*
+        Scanner w = new Scanner(System.in);
+        //ingresamos los valores que queremos ordener 
         double motos[] = {55.8, 300.25, 180.35, 75.60, 120.25, 80.0};
         System.out.println("Lista de velocidades de motocicletas: " + Arrays.toString(motos));
         //mandamos a llamar el metodo de orden seleccion
-        
         motos = ordenSeleccionD(motos);
         System.out.println("Lista ordenada: " + Arrays.toString(motos));
 
         //Busqueda de velocidades
-        
         double posicion;
         double moto[] = {55.8, 300.25, 180.35, 75.60, 120.25, 80.0};
         moto = ordenSeleccionD(moto);
@@ -43,7 +59,6 @@ public static void main(String[] args) {
         }
 
         //Busqueda de edades, queremos encontrar si esta o no en nuestra lista el valor que estamos ingresando.
-        
         int position;
         int edades[] = {18, 29, 34, 56, 19, 34, 56, 80};
         edades = ordenBurbuja(edades);
@@ -77,8 +92,7 @@ public static void main(String[] args) {
         }
         return a;
     }
-    //Hicimos el arreglo de orden burbuja.
-    
+    //hicimos el arreglo de orden burbuja.
     public static int[] ordenBurbuja(int[] a) {
         int n = a.length;
         for (int i = 0; i < n - 1; i++) {
@@ -94,7 +108,6 @@ public static void main(String[] args) {
         return a;
     }
     // realizamos lo que es la busqueda binaria.
-    
     public static double busquedaBin(double[] a, double clave) {
 
         int central, alto, bajo;
@@ -138,6 +151,9 @@ public static void main(String[] args) {
         }
 
         return -1;
+        */
+
 
     }
 }
+    
