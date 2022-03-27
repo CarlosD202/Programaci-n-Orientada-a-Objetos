@@ -1,4 +1,4 @@
-/*
+//*
   *Hacer un programa para que una persona autorizada pueda saber cual de todas las motocicletas
 // de una empresa es la mas lenta que tiene que se caracterizan por
  * su marca, color, modelo y velocidad. 
@@ -10,11 +10,11 @@
 // Descripción      : Proyecto Java
 // Fecha de creación: 9/2/22
 //
-package poo;
 
-
+package proyectodepoo;
+//Clase padre
 //implementamos el comparador
-public class Motocicleta implements comparador {
+public class Motocicleta implements Comparador {
 
     private String marca;
     private String color;
@@ -33,19 +33,29 @@ public class Motocicleta implements comparador {
     public double getVelocidad() {
         return velocidad;
     }
-
+    /*
     public String enseñarDatos() {
         return "Marca: " + marca + "\nColor :" + color + "\nModelo :" + modelo + "\nVelocidad :" + velocidad + "\n";
     }
+    */
+    
     //Implementamos el metodo de encapsulación
     //arreglamos la observacion anterior
-    //Insertamos get y set para marca
+    //Insertamos get y set para marca 
     public String getmarca() {
         return marca;
     }
 
     public String setmarca() {
         return marca;
+    }
+    
+    public double getvelocidad(){
+        return velocidad;
+    }
+    
+    public double setvelocidad(){
+        return velocidad;
     }
 
     //Insertamos get y set para color
@@ -69,6 +79,7 @@ public class Motocicleta implements comparador {
     public double vel() {
         return this.velocidad;
     }
+    
     // este es el codigo de la interface llamada comparador
     @Override
     public boolean igualQue(Object o) {
@@ -98,5 +109,5 @@ public class Motocicleta implements comparador {
     public boolean mayorIgual(Object o) {
         Motocicleta v = (Motocicleta) o;
         return this.vel() >= v.vel();
-    }
+    } 
 }
