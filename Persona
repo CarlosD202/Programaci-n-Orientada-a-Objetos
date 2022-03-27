@@ -1,11 +1,25 @@
-package poo;
+/*
+ * Hacer un programa para que una persona autorizada pueda saber cual de todas las motocicletas
+// de una empresa es la mas lenta que tiene que se caracterizan por
+ * su marca, color, modelo y velocidad. 
+ * 
+ */
+// Programa         : ProyectoDePOO.java
+// Programadores    : Carlos Daniel Chinchilla García
+//                    Josué Omar Ramírez Osorio 
+// Descripción      : Proyecto Java
+// Fecha de creación: 9/2/22
+//
+package proyectodepoo;
 import java.util.Scanner;
-/
-public class persona {
-     private String nombre;
+//Clase padre
+public class Persona {
+    
+    private String nombre;
     private String apellido;
     
-    public persona(String nombre, String apellido){
+    //Metodo constructor
+    public Persona(String nombre, String apellido){
         this.nombre = nombre;
         this.apellido = apellido;
     }
@@ -25,4 +39,3 @@ public class persona {
         return apellido;
     }
 }
-
