@@ -1,0 +1,62 @@
+/*
+ * Hacer un programa para que una persona autorizada pueda saber cual de todas las motocicletas
+// de una empresa es la mas lenta que tiene que se caracterizan por
+ * su marca, color, modelo y velocidad. 
+ * 
+ */
+// Programa         : ProyectoDePOO.java
+// Programadores    : Carlos Daniel Chinchilla García
+//                    Josué Omar Ramírez Osorio 
+// Descripción      : Proyecto Java
+// Fecha de creación: 9/2/22
+//
+package proyectodepoo;
+
+/**
+ *
+ * @author Carlos
+ */
+//Clase hija
+
+//Inspector hereda de la clase Persona
+public class Inspector extends Persona{
+    private int edad;
+    private String numeroDui;
+    
+    //Este seria el metodo constructor de la clase Inspector
+    public Inspector(String nombre,String apellido,int edad,String numeroDui){
+        //Con super damos a conocer que ya estan inicializados estos parametros solo tenemos que inicializar los nuevos 
+        super(nombre,apellido);
+        this.edad = edad;
+        this.numeroDui = numeroDui;
+    }
+    
+     public int getedad(){
+        return edad;
+    }
+    public int setedad (){
+        return edad;
+    }
+    
+    public String getnumeroDui (){
+        return numeroDui;
+    }
+    
+    public String setnumeroDui (){
+        return numeroDui;
+    }
+    
+    public void mostrarDatos(){
+        System.out.println("-----DATOS DEL INSPECTOR-----");
+        
+        
+        /*Utilizamos getnombre,getapellido porque son los que ya estan inicializados y no estan por gusto los demas lo podemos poder de 
+        un solo porque son los que acabamos de inicializar y estan en esta clase por esa razón lo ponemos directo
+        */
+        System.out.println("Nombre: "+getnombre()+
+                "\nApellido: "+getapellido()+
+                "\nEdad: "+edad+
+                "\nNumero de Dui: "+numeroDui);
+    }
+    
+}
