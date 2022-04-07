@@ -54,8 +54,14 @@ public class Motodecarrera extends Motocicleta {
       public float setlongMax (){
         return longMax;
     }
+      //Sobreescribimos el metodo de la clase padre con el Override
+    @Override
+      public String mostrarDatos(){
+          return "Marca: "+marca+"\nColor: "+color+"\nModelo: "+modelo+"\nVelocidad:"+velocidad+
+                  "\nCarnet: "+carnet+"\nAltura Sillin: "+alturasillin+"\nLongitud Maxima: "+longMax;
+      }
     
-    public void mostrarDatos(){
+    /*public void mostrarDatos(){
         System.out.println("-----INFORMACIÓN DE LA MOTO DE CARRERAS-----");
         System.out.println("Marca: "+getmarca()+
                 "\nColor: "+getcolor()+
@@ -64,7 +70,7 @@ public class Motodecarrera extends Motocicleta {
                 "\nCarnet: "+carnet+
                 "\nAltura del sillin: "+alturasillin+
                 "\nLongitud máxima: "+longMax);
-    }
+    }*/
     
     
 }
