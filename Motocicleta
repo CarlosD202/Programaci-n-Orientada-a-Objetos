@@ -1,4 +1,4 @@
-//*
+/*
   *Hacer un programa para que una persona autorizada pueda saber cual de todas las motocicletas
 // de una empresa es la mas lenta que tiene que se caracterizan por
  * su marca, color, modelo y velocidad. 
@@ -14,12 +14,20 @@
 package proyectodepoo;
 //Clase padre
 //implementamos el comparador
-public class Motocicleta implements Comparador {
 
-    private String marca;
+//Borramos "implements comparador"
+public class Motocicleta {
+
+    /*private String marca;
     private String color;
     private String modelo;
-    private double velocidad;
+    private double velocidad;*/
+    
+    //Cambiamos a protected para no tener poblemas en caso de ser privados, es una mejora
+    protected String marca;
+    protected String color;
+    protected String modelo;
+    protected double velocidad;
 
     // Aqui ingresamos el método constructor
     public Motocicleta(String marca, String color, String modelo, double velocidad) {
@@ -80,7 +88,12 @@ public class Motocicleta implements Comparador {
         return this.velocidad;
     }
     
+   public String mostrarDatos(){
+       return "Marca: "+marca+"\nColor: "+color+"\nModelo: "+modelo+"\nVelocidad:"+velocidad;
+   }
+    
     // este es el codigo de la interface llamada comparador
+    /*
     @Override
     public boolean igualQue(Object o) {
         Motocicleta v = (Motocicleta) o;
@@ -110,4 +123,5 @@ public class Motocicleta implements Comparador {
         Motocicleta v = (Motocicleta) o;
         return this.vel() >= v.vel();
     } 
+*/
 }
