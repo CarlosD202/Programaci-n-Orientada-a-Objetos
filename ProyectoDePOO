@@ -21,7 +21,26 @@ import java.util.Arrays;
 public class ProyectoDePOO {
 
     public static void main(String[] args) {
+        //Arreglo 
+        Motocicleta misMotos[] = new Motocicleta[3];
+        
+        misMotos[0] = new Motocicleta("Yamaha","Rojo","MT-09",160);
+        //Inicia el polimorfismo ya que lo vamos a instanciar con una clase hija
+        //Y podemos ver la muchas formas que puede tomar un objeto
+        misMotos[1] = new Motodecarrera("Ducati","Verde","B4S",240,"Tipo A",860,205);
+        misMotos[2] = new Motoelectrica("Askoll","Negro","ES3",100,"Estándar de 220V");
+        
+        for(Motocicleta motocicletas: misMotos){
+            System.out.println(motocicletas.mostrarDatos());
+            System.out.println("");
+        }
+        
+        
+        
+        
+        
         //Creamos un objeto de la clase Inspector y escribimos sus respectivos datos
+        /*
         {
             Inspector inspector = new Inspector("Omar","García",21,"08569496-3");
             inspector.mostrarDatos();
@@ -35,7 +54,7 @@ public class ProyectoDePOO {
         }
         
         
-        /*
+        
         Scanner w = new Scanner(System.in);
         //ingresamos los valores que queremos ordener 
         double motos[] = {55.8, 300.25, 180.35, 75.60, 120.25, 80.0};
