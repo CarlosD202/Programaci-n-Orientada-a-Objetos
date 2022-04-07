@@ -1,0 +1,42 @@
+/*
+ * Hacer un programa para que una persona autorizada pueda saber cual de todas las motocicletas
+// de una empresa es la mas lenta que tiene que se caracterizan por
+ * su marca, color, modelo y velocidad. 
+ * 
+ */
+// Programa         : ProyectoDePOO.java
+// Programadores    : Carlos Daniel Chinchilla García
+//                    Josué Omar Ramírez Osorio 
+// Descripción      : Proyecto Java
+// Fecha de creación: 9/2/22
+//
+package proyectodepoo;
+
+/**
+ *
+ * @author Carlos
+ */
+public class Motoelectrica extends Motocicleta{
+    private String tipodecargador;
+    
+    public Motoelectrica(String marca, String color, String modelo, double velocidad, String tipodecargador) {
+        super(marca,color,modelo,velocidad);
+        this.tipodecargador = tipodecargador;
+    }
+    
+    public String gettipodecargador(){
+        return tipodecargador;
+    }
+    
+    public String settipodecargador(){
+        return tipodecargador;
+    }
+    //Sobreescribimos el metodo
+    @Override
+    public String mostrarDatos(){
+        return "Marca: "+marca+"\nColor: "+color+"\nModelo: "+modelo+"\nVelocidad:"+velocidad+
+                "\nTipo de cargador: "+tipodecargador;
+      }
+}
+        
+
