@@ -14,82 +14,86 @@ package proyectodepoo;
 // Importamos el paquete para poder leer los datos 
 
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.Arrays;
-
 
 public class ProyectoDePOO {
 
     public static void main(String[] args) {
         //Arreglo 
         Motocicleta misMotos[] = new Motocicleta[3];
-        
-        misMotos[0] = new Motocicleta("Yamaha","Rojo","MT-09",160);
+
+        misMotos[0] = new Motocicleta("Yamaha", "Rojo", "MT-09", 160);
         //Inicia el polimorfismo ya que lo vamos a instanciar con una clase hija
         //Y podemos ver la muchas formas que puede tomar un objeto
-        misMotos[1] = new Motodecarrera("Ducati","Verde","B4S",240,"Tipo A",860,205);
-        misMotos[2] = new Motoelectrica("Askoll","Negro","ES3",100,"Estándar de 220V");
-        
-        for(Motocicleta motocicletas: misMotos){
+        misMotos[1] = new Motodecarrera("Ducati", "Verde", "B4S", 240, "Tipo A", 860, 205);
+        misMotos[2] = new Motoelectrica("Askoll", "Negro", "ES3", 100, "Estándar de 220V");
+
+        for (Motocicleta motocicletas : misMotos) {
             System.out.println(motocicletas.mostrarDatos());
             System.out.println("");
         }
-        
-        
-        
-        
-        
+
         //Creamos un objeto de la clase Inspector y escribimos sus respectivos datos
-        /*
         {
-            Inspector inspector = new Inspector("Omar","García",21,"08569496-3");
+            Inspector inspector = new Inspector("Omar", "García", 21, "08569496-3");
             inspector.mostrarDatos();
-            
+
         }
 
         //Creamos un objeto de la clase Motodecarrera y escribimos sus respectivos datos
         {
-            Motodecarrera motodecarrera = new Motodecarrera ("Yamaha","Azul","MT-09",100,"Tipo A",860,205);
+            Motodecarrera motodecarrera = new Motodecarrera("Yamaha", "Azul", "MT-09", 100, "Tipo A", 860, 205);
             motodecarrera.mostrarDatos();
         }
-        
-        
-        
         Scanner w = new Scanner(System.in);
-        //ingresamos los valores que queremos ordener 
-        double motos[] = {55.8, 300.25, 180.35, 75.60, 120.25, 80.0};
-        System.out.println("Lista de velocidades de motocicletas: " + Arrays.toString(motos));
-        //mandamos a llamar el metodo de orden seleccion
-        motos = ordenSeleccionD(motos);
-        System.out.println("Lista ordenada: " + Arrays.toString(motos));
 
-        //Busqueda de velocidades
-        double posicion;
-        double moto[] = {55.8, 300.25, 180.35, 75.60, 120.25, 80.0};
-        moto = ordenSeleccionD(moto);
+        try {
 
-        System.out.println("Ingrese una velocidad a buscar:");
-        posicion = w.nextDouble();
-        if (busquedaBin(moto, posicion) == -1) {
-            System.out.println("Esa velocidad no existe! ");
-        } else {
-            System.out.println("La velocidad está en la posicion: " + busquedaBin(moto, posicion));
+            //ingresamos los valores que queremos ordener 
+            double motos[] = {55.8, 300.25, 180.35, 75.60, 120.25, 80.0};
+            System.out.println("Lista de velocidades de motocicletas: " + Arrays.toString(motos));
+            //mandamos a llamar el metodo de orden seleccion
+            motos = ordenSeleccionD(motos);
+            System.out.println("Lista ordenada: " + Arrays.toString(motos));
 
+            //Busqueda de velocidades
+            double posicion;
+            double moto[] = {55.8, 300.25, 180.35, 75.60, 120.25, 80.0};
+            moto = ordenSeleccionD(moto);
+
+            System.out.println("Ingrese una velocidad a buscar:");
+            posicion = w.nextDouble();
+            if (busquedaBin(moto, posicion) == -1) {
+                System.out.println("Esa velocidad no existe! ");
+            } else {
+                System.out.println("La velocidad está en la posicion: " + busquedaBin(moto, posicion));
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("El caracter ingresado no es valido ingrese numeros");
+            System.exit(0);
+        }
+        try {
+            //Busqueda de edades, queremos encontrar si esta o no en nuestra lista el valor que estamos ingresando.
+            int position;
+            int edades[] = {18, 29, 34, 56, 19, 34, 56, 80};
+            edades = ordenBurbuja(edades);
+            System.out.println("Lista de edades: " + Arrays.toString(edades));
+            System.out.println("Ingrese una edad para buscar:");
+            position = w.nextInt();
+            if (busquedaBina(edades, position) == -1) {
+                System.out.println("Esa edad no esta registrada ");
+            } else {
+                System.out.println("La edad está en la posicion: " + busquedaBina(edades, position));
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("El caracter ingresado no es valido ingrese numeros");
+            System.exit(0);
         }
 
-        //Busqueda de edades, queremos encontrar si esta o no en nuestra lista el valor que estamos ingresando.
-        int position;
-        int edades[] = {18, 29, 34, 56, 19, 34, 56, 80};
-        edades = ordenBurbuja(edades);
-        System.out.println("Lista de edades: " + Arrays.toString(edades));
-        System.out.println("Ingrese una edad para buscar:");
-        position = w.nextInt();
-        if (busquedaBina(edades, position) == -1) {
-            System.out.println("Esa edad no esta registrada ");
-        } else {
-            System.out.println("La edad está en la posicion: " + busquedaBina(edades, position));
-
-        }
     }
 
     public static double[] ordenSeleccionD(double[] a) {
@@ -111,6 +115,7 @@ public class ProyectoDePOO {
         }
         return a;
     }
+
     //hicimos el arreglo de orden burbuja.
     public static int[] ordenBurbuja(int[] a) {
         int n = a.length;
@@ -126,6 +131,7 @@ public class ProyectoDePOO {
         }
         return a;
     }
+
     // realizamos lo que es la busqueda binaria.
     public static double busquedaBin(double[] a, double clave) {
 
@@ -170,9 +176,7 @@ public class ProyectoDePOO {
         }
 
         return -1;
-        */
-
 
     }
 }
-    
+
